@@ -8,7 +8,7 @@ const galleryEl = document.querySelector('.gallery');
 const onCreateMarkup = galleryItems.map(({ preview, original, description })=>
 
     ` <li class="gallery__item">
-  <a class="gallery__link" href="${original}">
+  <a class="gallery__link" href="${original}" >
     <img
       class="gallery__image"
       src="${preview}"
@@ -31,15 +31,20 @@ function OnClickGalleryImg (evt) {
   if (isImgEl) {
   return
   }
+  const instance = basicLightbox.create(`
+    <img src="${evt.target.dataset.source}" width="800" height="600">
+`)
+  instance.show()
 
-evt.target.src=evt.target.dataset.source
+  // console.log(evt.target.src);
+  // console.log(evt.target.dataset.source);
+  galleryEl.addEventListener('keydown', OnCloswGalleryImg)
+  function OnCloswGalleryImg(evt) {
+    instance.close()
+  }
+
+
 }
 
 
-
-const instance = basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
-`)
-
-instance.show()
 
