@@ -9,6 +9,7 @@ const onCreateMarkup = galleryItems.map(({ preview, original, description })=>
   <a class="gallery__link" href="${original}" >
     <img
       class="gallery__image"
+      
       src="${preview}"
       alt="${description}"
      />
@@ -35,10 +36,10 @@ function OnClickGalleryImg(evt) {
     function OnCloswGalleryImg(evt) {
         instance.close()
     }
-//     let lightbox = new SimpleLightbox('.gallery a', {
-//     captionDelay: 250,
-//     captionType: 'attr'
-// });
+    let lightbox = new SimpleLightbox('.gallery a', {
+    captionDelay: 250,
+    captionType: 'attr'
+});
 }
 
 console.log(galleryItems);
